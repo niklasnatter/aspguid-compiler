@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            <Label text="{{- name -}}">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  {%- if (length(trim(version)) != 0) %}
+                  <Label text="{{- version -}}" />
+                  {%- endif %}
+                  {%- if (length(trim(author)) != 0) %}
+                  <Label text="{{- author -}}" />
+                  {%- endif %}
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      {%- if (length(trim(description)) != 0) %}
+      <Label minHeight="-Infinity" text="{{- description -}}" wrapText="true" />
+      {%- endif %}
+   </children>
+</VBox>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootNode" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aspguidp.controller.ApplicationController" >
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <fx:include source="information/program_information.fxml" />
+      <fx:include source="input/program_input.fxml" VBox.vgrow="SOMETIMES" />
+      <fx:include source="input/input_action.fxml" />
+      <fx:include source="output/solver_message.fxml" />
+      <fx:include source="output/empty_result_message.fxml" />
+      <fx:include source="output/program_output.fxml" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

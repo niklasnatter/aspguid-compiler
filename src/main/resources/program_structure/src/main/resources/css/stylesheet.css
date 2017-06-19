@@ -1,0 +1,111 @@
+/* load fontawesome which is used for icons */
+@font-face {
+    src: url('/font/FontAwesome.otf');
+}
+
+/* VALIDATION START ------------------------------------------------------------------------------------------------ */
+/* set background of input field of stacked fields to transparent */
+.text-field.transparent-background {
+    -fx-background-color: transparent;
+}
+
+/* show error on validate-always text fields without focus */
+.text-field.validation-invalid.validate-always, .text-field.validation-incomplete.validate-always {
+    -fx-text-box-border: red;
+}
+
+/* show validation status of validation text fields on focus */
+.text-field.validation-invalid.imitate-focus {
+    -fx-text-box-border: red;
+}
+
+.text-field.validation-incomplete.imitate-focus {
+    -fx-text-box-border: orange;
+}
+
+.text-field.validation-valid.imitate-focus {
+    -fx-text-box-border: green;
+}
+
+/* show validation status on validation label */
+.label.validation-invalid {
+    -fx-text-fill: red;
+}
+/* VALIDATION END -------------------------------------------------------------------------------------------------- */
+
+
+/* AUTOCOMPLETE POPUP START ---------------------------------------------------------------------------------------- */
+/* autocomplete popup list styling */
+.autocomplete-popup .list-view.autocomplete-popup {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-color, -17%), derive(-fx-color, -30%)), -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-padding: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 12, 0, 0, 8);
+}
+
+/* do not highlight odd list rows */
+.autocomplete-popup .list-view .list-cell:odd {
+    -fx-background-color: white;
+}
+
+/* custom selection styling for list cells */
+.autocomplete-popup .list-view .list-cell:selected {
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+}
+/* AUTOCOMPLETE POPUP END ------------------------------------------------------------------------------------------ */
+
+
+/* ANSWER SET TEXT OUTPUT START ------------------------------------------------------------------------------------ */
+/* console output text-area */
+.text-area.console-output {
+    -fx-font-family: monospace;
+}
+
+/* adjust text position of solver message */
+.text-area.solver-message .content {
+    -fx-padding: 10 7 -3 7;
+}
+/* ANSWER SET TEXT OUTPUT END -------------------------------------------------------------------------------------- */
+
+
+/* ENTITY LIST START ----------------------------------------------------------------------------------------------- */
+/* custom focused style */
+.list-view.entity-list:focused {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0;
+}
+
+/* do not highlight selected list cells if list is not focused */
+.list-view.entity-list .list-cell:selected {
+    -fx-background: -fx-control-inner-background;
+}
+
+.list-view.entity-list .list-cell:selected:odd {
+    -fx-background: -fx-control-inner-background-alt;
+}
+/* custom selection styling for list cells */
+.list-view.entity-list:focused .list-cell:selected {
+    -fx-background-color: lightblue;
+}
+
+/* entity list delete button */
+.list-delete-button .label {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 13px;
+    -fx-text-fill: darkgray;
+}
+
+.list-delete-button:hover .label {
+    -fx-text-fill: gray;
+}
+/* ENTITY LIST END ------------------------------------------------------------------------------------------------- */
+
+
+/* OUTPUT AREA BUTTONS START --------------------------------------------------------------------------------------- */
+.button.icon-button, .toggle-button.icon-button {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 12px;
+}
+/* OUTPUT AREA BUTTONS END ----------------------------------------------------------------------------------------- */

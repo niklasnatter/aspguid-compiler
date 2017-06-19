@@ -1,0 +1,38 @@
+<project name="{{- projectName -}}" default="run">
+    <property name="src.dir" location="src/main/java"/>
+    <property name="resource.dir" location="src/main/resources"/>
+    <property name="build.dir" location="target"/>
+    <property name="artifact.dir" location="artifact"/>
+    <property name="jar.name" value="{{- jarName -}}"/>
+
+
+    <!-- delete existing build files and jar file-->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${artifact.dir}"/>
+    </target>
+
+
+    <!-- make build dir, copy resources, compile java files -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <copy todir="${build.dir}">
+            <fileset dir="${resource.dir}"/>
+        </copy>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" target="1.8" includeAntRuntime="false" fork="true"/>
+    </target>
+
+    <!-- generate executable jar file  -->
+    <target name="jar" depends="compile">
+        <jar destfile="${artifact.dir}/${jar.name}" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="aspguidp.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- run jar file -->
+    <target name="run" depends="jar">
+        <java jar="${artifact.dir}/${jar.name}" fork="true"/>
+    </target>
+</project>
